@@ -1,5 +1,4 @@
 # Load libraries
-import logging
 from ml_data import ml_data_analyzer
 
 mda = ml_data_analyzer("https://archive.ics.uci.edu/ml/machine-learning-databases/iris/iris.data",
