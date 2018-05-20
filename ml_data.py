@@ -13,8 +13,6 @@ from sklearn.naive_bayes import GaussianNB
 from sklearn.discriminant_analysis import LinearDiscriminantAnalysis
 from sklearn.discriminant_analysis import QuadraticDiscriminantAnalysis
 from sklearn.svm import SVC
-from sklearn.svm import LinearSVC
-from sklearn.linear_model import SGDClassifier
 from sklearn.neighbors import KNeighborsClassifier
 from sklearn.tree import DecisionTreeClassifier
 from sklearn.ensemble import RandomForestClassifier
@@ -106,11 +104,13 @@ class ml_data_analyzer():
             kfold = model_selection.KFold(n_splits=10, random_state=seed)
             cv_results = model_selection.cross_val_score(model, self.X_train, self.Y_train, cv=kfold, scoring=scoring)
 
-            # print("\n" + name)
+            print("\n" + name)
             self.model_names.append(name)
-            # print("Result: " + str(cv_results))
-            # print("Mean: " + str(cv_results.mean()))
-            # print("Standard Deviation: " + str(cv_results.std()))
+            
+            print("Result: " + str(cv_results))
+            print("Mean: " + str(cv_results.mean()))
+            print("Standard Deviation: " + str(cv_results.std()))
+            
             self.means.append(cv_results.mean())
             self.stds.append(cv_results.std())
 
@@ -134,15 +134,8 @@ class ml_data_analyzer():
         self.logger.info('Best model is (%s) and model score is (%s)', self.models[self.stds.index(min(self.stds))][0],
                          min(self.stds))
         self.start_prediction(self.models[self.stds.index(min(self.stds))][0])
-        # plt.show()
+        plt.show()
 
-        # Compare Algorithms
-        # fig = plt.figure()
-        # fig.suptitle('Algorithm Comparison')
-        # ax = fig.add_subplot(111)
-        # plt.boxplot(self.results)
-        # ax.set_xticklabels(self.names)
-        # plt.show()
 
     def start_prediction(self, type):
         # 6. Make Predictions
