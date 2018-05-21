@@ -104,13 +104,11 @@ class ml_data_analyzer():
             kfold = model_selection.KFold(n_splits=10, random_state=seed)
             cv_results = model_selection.cross_val_score(model, self.X_train, self.Y_train, cv=kfold, scoring=scoring)
 
-            print("\n" + name)
+            # print("\n" + name)
             self.model_names.append(name)
-            
-            print("Result: " + str(cv_results))
-            print("Mean: " + str(cv_results.mean()))
-            print("Standard Deviation: " + str(cv_results.std()))
-            
+            # print("Result: " + str(cv_results))
+            # print("Mean: " + str(cv_results.mean()))
+            # print("Standard Deviation: " + str(cv_results.std()))
             self.means.append(cv_results.mean())
             self.stds.append(cv_results.std())
 
@@ -134,58 +132,39 @@ class ml_data_analyzer():
         self.logger.info('Best model is (%s) and model score is (%s)', self.models[self.stds.index(min(self.stds))][0],
                          min(self.stds))
         self.start_prediction(self.models[self.stds.index(min(self.stds))][0])
+
         plt.show()
 
+        # Compare Algorithms
+        # fig = plt.figure()
+        # fig.suptitle('Algorithm Comparison')
+        # ax = fig.add_subplot(111)
+        # plt.boxplot(self.results)
+        # ax.set_xticklabels(self.names)
+        # plt.show()
 
     def start_prediction(self, type):
-        # 6. Make Predictions
-        # Make predictions on validation dataset
+        # 6. Make Predictions    --   Make predictions on validation dataset
+        model = None
         if type == "KNN":
-            knn = KNeighborsClassifier()
-            knn.fit(self.X_train, self.Y_train)
-            predictions = knn.predict(self.X_validation)
-            # print(accuracy_score(self.Y_validation, predictions))
-            self.logger.info(type + 'Score is: %s', accuracy_score(self.Y_validation, predictions))
-            self.logger.info(type + 'Score is: %s %', accuracy_score(self.Y_validation, predictions) * 100)
-            # print(confusion_matrix(self.Y_validation, predictions))
-            self.logger.info('Confusion matrix is: %s', confusion_matrix(self.Y_validation, predictions))
-
-            # print(classification_report(self.Y_validation, predictions))
-            self.logger.info('Classification report is: %s', classification_report(self.Y_validation, predictions))
+            model = KNeighborsClassifier()
         elif type == "SVC":
             model = SVC()
-            model.fit(self.X_train, self.Y_train)
-            predictions = model.predict(self.X_validation)
-            self.logger.info(type + ' score is: %f%%', (accuracy_score(self.Y_validation, predictions))*100)
-            self.logger.info('Confusion matrix is: %s', confusion_matrix(self.Y_validation, predictions))
-            self.logger.info('Classification report is: %s', classification_report(self.Y_validation, predictions))
         elif type == "LoR":
             model = LogisticRegression()
-            model.fit(self.X_train, self.Y_train)
-            predictions = model.predict(self.X_validation)
-            self.logger.info(type + ' score is: %s', accuracy_score(self.Y_validation, predictions))
         elif type == "LDA":
             model = LinearDiscriminantAnalysis()
-            model.fit(self.X_train, self.Y_train)
-            predictions = model.predict(self.X_validation)
-            self.logger.info(type + ' score is: %s', accuracy_score(self.Y_validation, predictions))
         elif type == "QDA":
             model = QuadraticDiscriminantAnalysis()
-            model.fit(self.X_train, self.Y_train)
-            predictions = model.predict(self.X_validation)
-            self.logger.info(type + ' score is: %s', accuracy_score(self.Y_validation, predictions))
         elif type == "GNB":
             model = GaussianNB()
-            model.fit(self.X_train, self.Y_train)
-            predictions = model.predict(self.X_validation)
-            self.logger.info(type + ' score is: %s', accuracy_score(self.Y_validation, predictions))
         elif type == "DT":
             model = DecisionTreeClassifier()
-            model.fit(self.X_train, self.Y_train)
-            predictions = model.predict(self.X_validation)
-            self.logger.info(type + ' score is: %s', accuracy_score(self.Y_validation, predictions))
         elif type == "RF":
             model = RandomForestClassifier()
-            model.fit(self.X_train, self.Y_train)
-            predictions = model.predict(self.X_validation)
-            self.logger.info(type + ' score is: %s', accuracy_score(self.Y_validation, predictions))
+
+        model.fit(self.X_train, self.Y_train)
+        predictions = model.predict(self.X_validation)
+        self.logger.info(type + ' score is: %f%%', (accuracy_score(self.Y_validation, predictions)) * 100)
+        self.logger.info('Confusion matrix is: %s', confusion_matrix(self.Y_validation, predictions))
+        self.logger.info('Classification report is: %s', classification_report(self.Y_validation, predictions))
