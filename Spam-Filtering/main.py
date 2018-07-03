@@ -1,6 +1,10 @@
 # Page number 76 > Binary classification without performance matrics
+```javascript
+if (isAwesome){
+  return true
+}
+```
 
-'''ruby
 import pandas as pd
 import numpy as np
 from sklearn.feature_extraction.text import TfidfVectorizer
@@ -20,4 +24,4 @@ X_test = vectorizer.transform(X_test_raw)
 
 predictions = classifier.predict(X_test)
 print(predictions)
-'''
+
