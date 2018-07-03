@@ -1,8 +1,8 @@
 # Page number 76 > Binary classification without performance matrics
-```javascript
-if (isAwesome){
-  return true
-}
+
+```python
+s = "Python syntax highlighting"
+print s
 ```
 
 import pandas as pd
