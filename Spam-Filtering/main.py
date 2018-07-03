@@ -1,10 +1,5 @@
 # Page number 76 > Binary classification without performance matrics
 
-```python
-s = "Python syntax highlighting"
-print s
-```
-
 import pandas as pd
 import numpy as np
 from sklearn.feature_extraction.text import TfidfVectorizer
