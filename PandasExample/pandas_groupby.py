@@ -1,3 +1,9 @@
+# Groupby
+
+'''
+The groupby method allows you to group rows of data together and call aggregate functions
+'''
+
 import pandas as pd
 
 # Create dataframe
