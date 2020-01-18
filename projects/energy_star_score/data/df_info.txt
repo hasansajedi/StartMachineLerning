@@ -1,0 +1,65 @@
+<class 'pandas.core.frame.DataFrame'>
+RangeIndex: 11746 entries, 0 to 11745
+Data columns (total 60 columns):
+Order                                                         11746 non-null int64
+Property Id                                                   11746 non-null int64
+Property Name                                                 11746 non-null object
+Parent Property Id                                            11746 non-null object
+Parent Property Name                                          11746 non-null object
+BBL - 10 digits                                               11735 non-null object
+NYC Borough, Block and Lot (BBL) self-reported                11746 non-null object
+NYC Building Identification Number (BIN)                      11746 non-null object
+Address 1 (self-reported)                                     11746 non-null object
+Address 2                                                     11746 non-null object
+Postal Code                                                   11746 non-null object
+Street Number                                                 11622 non-null object
+Street Name                                                   11624 non-null object
+Borough                                                       11628 non-null object
+DOF Gross Floor Area                                          11628 non-null float64
+Primary Property Type - Self Selected                         11746 non-null object
+List of All Property Use Types at Property                    11746 non-null object
+Largest Property Use Type                                     11746 non-null object
+Largest Property Use Type - Gross Floor Area (ft²)            11746 non-null object
+2nd Largest Property Use Type                                 11746 non-null object
+2nd Largest Property Use - Gross Floor Area (ft²)             11746 non-null object
+3rd Largest Property Use Type                                 11746 non-null object
+3rd Largest Property Use Type - Gross Floor Area (ft²)        11746 non-null object
+Year Built                                                    11746 non-null int64
+Number of Buildings - Self-reported                           11746 non-null int64
+Occupancy                                                     11746 non-null int64
+Metered Areas (Energy)                                        11746 non-null object
+Metered Areas  (Water)                                        11746 non-null object
+ENERGY STAR Score                                             11746 non-null object
+Site EUI (kBtu/ft²)                                           11746 non-null object
+Weather Normalized Site EUI (kBtu/ft²)                        11746 non-null object
+Weather Normalized Site Electricity Intensity (kWh/ft²)       11746 non-null object
+Weather Normalized Site Natural Gas Intensity (therms/ft²)    11746 non-null object
+Weather Normalized Source EUI (kBtu/ft²)                      11746 non-null object
+Fuel Oil #1 Use (kBtu)                                        11746 non-null object
+Fuel Oil #2 Use (kBtu)                                        11746 non-null object
+Fuel Oil #4 Use (kBtu)                                        11746 non-null object
+Fuel Oil #5 & 6 Use (kBtu)                                    11746 non-null object
+Diesel #2 Use (kBtu)                                          11746 non-null object
+District Steam Use (kBtu)                                     11746 non-null object
+Natural Gas Use (kBtu)                                        11746 non-null object
+Weather Normalized Site Natural Gas Use (therms)              11746 non-null object
+Electricity Use - Grid Purchase (kBtu)                        11746 non-null object
+Weather Normalized Site Electricity (kWh)                     11746 non-null object
+Total GHG Emissions (Metric Tons CO2e)                        11746 non-null object
+Direct GHG Emissions (Metric Tons CO2e)                       11746 non-null object
+Indirect GHG Emissions (Metric Tons CO2e)                     11746 non-null object
+Property GFA - Self-Reported (ft²)                            11746 non-null int64
+Water Use (All Water Sources) (kgal)                          11746 non-null object
+Water Intensity (All Water Sources) (gal/ft²)                 11746 non-null object
+Source EUI (kBtu/ft²)                                         11746 non-null object
+Release Date                                                  11746 non-null object
+Water Required?                                               11628 non-null object
+DOF Benchmarking Submission Status                            11716 non-null object
+Latitude                                                      9483 non-null float64
+Longitude                                                     9483 non-null float64
+Community Board                                               9483 non-null float64
+Council District                                              9483 non-null float64
+Census Tract                                                  9483 non-null float64
+NTA                                                           9483 non-null object
+dtypes: float64(6), int64(6), object(48)
+memory usage: 5.4+ MB
